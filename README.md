@@ -1,6 +1,9 @@
 # Willow-Dashboard
 Near realtime Dashboard for Willow server
 
+![image](https://github.com/jazzmonger/Willow-Dashboard/assets/52110065/3864d898-d145-47e4-8a2c-228cd6fcaa6a)
+
+
 Install the SSH Integration
 https://github.com/zhbjsh/homeassistant-ssh
 
