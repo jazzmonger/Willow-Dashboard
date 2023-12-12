@@ -1,8 +1,9 @@
 # Willow-Dashboard
-Near realtime Dashboard for Willow server
+Near realtime Dashboard for Willow WIS Inference server
 
 ![image](https://github.com/jazzmonger/Willow-Dashboard/assets/52110065/3864d898-d145-47e4-8a2c-228cd6fcaa6a)
 
+This assumes WIS is operational and that the command ```nvidia-smi``` produces useable output. 
 
 Install the SSH Integration
 https://github.com/zhbjsh/homeassistant-ssh
