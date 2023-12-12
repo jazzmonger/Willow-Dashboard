@@ -218,3 +218,117 @@ Once thats working, click CONFIGURE on the HA SSH integration (it took me foreve
       name: Processes
       key: processes
 ```
+For the graphing, I use a very cool integration called Plotly.  Highly configurable and flexible.
+https://github.com/dbuezas/lovelace-plotly-graph-card
+
+once you have that installed, paste this into a manual lovelace card's configuration. change to your liking!
+```
+type: custom:plotly-graph
+hours_to_show: 0.1
+raw_plotly_config: null
+defaults:
+  yaxes:
+    side: left
+    overlaying: 'y'
+    visible: true
+    showgrid: true
+  entity:
+    show_value: true
+entities:
+  - entity: sensor.willow_server_gpu_temp
+    name: GPU Temperature
+    yaxis: y1
+    line:
+      color: pink
+      width: 1
+    smoothing: 1
+  - entity: sensor.willow_server_cpu_load
+    name: CPU Load
+    internal: false
+    yaxis: y2
+    line:
+      color: white
+    smoothing: 1
+  - entity: sensor.willow_server_gpu_utilization
+    name: GPU Load
+    internal: false
+    yaxis: y3
+    line:
+      color: yellow
+    smoothing: 1
+  - entity: sensor.willow_server_gpu_mem_used
+    name: GPU Memory Used
+    internal: false
+    yaxis: y4
+    line:
+      color: aqua
+    smoothing: 1
+  - entity: sensor.willow_server_gpu_mem_free
+    name: GPU Memory free
+    internal: false
+    yaxis: y5
+    line:
+      color: yellow
+    smoothing: 1
+  - entity: sensor.willow_server_gpu_pstate
+    name: GPU P state
+    internal: false
+    yaxis: y6
+    line:
+      color: yellow
+refresh_interval: auto
+autorange_after_scroll: true
+layout:
+  height: 800
+  yaxis:
+    title: GPU Temp
+    zeroline: false
+    fixedrange: false
+  yaxis2:
+    fixedrange: true
+    zeroline: false
+    title: CPU Load
+  yaxis3:
+    title: GPU Load
+    zeroline: true
+    fixedrange: false
+    range:
+      - 0
+      - 100
+  yaxis4:
+    title: GPU Mem Used
+    zeroline: false
+    fixedrange: false
+  yaxis5:
+    title: GPU Mem free
+    zeroline: false
+    fixedrange: false
+  yaxis6:
+    title: GPU P-State
+    zeroline: false
+    fixedrange: false
+    range:
+      - 0
+      - 11
+  grid:
+    ygap: 0.2
+    rows: 6
+    columns: 1
+    pattern: coupled
+    roworder: top to bottom
+  xaxis:
+    rangeselector:
+      bgcolor: '#474747'
+      'y': 1.14
+      buttons:
+        - count: 1
+          step: minute
+        - count: 10
+          step: minute
+        - count: 30
+          step: minute
+        - count: 1
+          step: hour
+        - count: 4
+          step: hour
+```
